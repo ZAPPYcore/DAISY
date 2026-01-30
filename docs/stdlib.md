@@ -1,8 +1,6 @@
 # Standard Library Guide
 
 This document focuses on the core `Result`/`Option` helpers and their usage.
-Because DAISY does not yet support lambdas or function pointers, these helpers
-use eager evaluation (the mapped or fallback value is evaluated before the call).
 
 ## Option
 
@@ -114,5 +112,6 @@ fn main() -> int:
   stdlib_log.error_kv("db", "down")
   return 0
 ```
+
 
 
