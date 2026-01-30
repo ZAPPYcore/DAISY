@@ -1,0 +1,10 @@
+module rust_call
+
+extern fn daisy_rust_add(a:int, b:int) -> int
+
+fn main() -> int:
+  set result = daisy_rust_add(40, 2)
+  print result
+  return 0
+
+

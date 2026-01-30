@@ -1,0 +1,6 @@
+module daisy_module
+
+fn exported() -> int:
+  return 7
+
+

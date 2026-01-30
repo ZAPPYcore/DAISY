@@ -1,0 +1,10 @@
+module tensor_demo
+
+fn main() -> int:
+  set a = tensor_matmul()
+  set b = tensor_matmul()
+  set c = tensor_matmul(a, b)
+  print "matmul done"
+  return 0
+
+

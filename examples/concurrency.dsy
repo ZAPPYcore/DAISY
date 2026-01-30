@@ -1,0 +1,14 @@
+module concurrency_demo
+
+fn worker(ch: channel) -> int:
+  set _ = send(ch, 42)
+  return 0
+
+fn main() -> int:
+  set ch = channel()
+  set _ = spawn(worker, ch)
+  set value = recv(ch)
+  print value
+  return 0
+
+

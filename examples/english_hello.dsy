@@ -1,0 +1,7 @@
+module hello_en
+
+fn main() -> int:
+  print "Hello, DAISY"
+  return 0
+
+
