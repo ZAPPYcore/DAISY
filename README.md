@@ -1,6 +1,6 @@
 # DAISY
 
-Production-grade language prototype with Korean and English prose syntax.
+Programming language with Korean and English prose syntax.
 
 ## Quick Start
 ```
@@ -31,5 +31,6 @@ daisy build examples/english_hello.dsy
 ```
 daisy build-compiler
 ```
+
 
 
