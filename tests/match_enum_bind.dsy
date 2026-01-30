@@ -1,0 +1,15 @@
+module match_enum_bind
+
+enum Maybe:
+  case Some: int
+  case None
+
+fn main() -> int:
+  set v = Maybe.Some(3)
+  match v:
+    case Maybe.Some(x):
+      print(x)
+    case _:
+      print(0)
+  return 0
+

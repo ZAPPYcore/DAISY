@@ -1,0 +1,13 @@
+module comparison_test
+
+fn main() -> int:
+  set a = 3
+  set b = 5
+  if a < b:
+    print "lt"
+  if b >= 5:
+    print "ge"
+  if a != b:
+    print "ne"
+  return 0
+

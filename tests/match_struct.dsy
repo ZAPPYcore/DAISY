@@ -1,0 +1,16 @@
+module match_struct_test
+
+struct Point:
+  x: int
+  y: int
+
+fn main() -> int:
+  set p = Point(1, 2)
+  match p:
+    case Point(1, y):
+      return y
+    case Point(_, _):
+      return 0
+  return 0
+
+

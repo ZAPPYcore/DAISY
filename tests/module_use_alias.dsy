@@ -1,0 +1,13 @@
+module module_use_alias_test
+
+import mathlib as m
+use mathlib
+
+fn main() -> int:
+  set a = m.add(1, 2)
+  set b = add(3, 4)
+  print a
+  print b
+  return 0
+
+

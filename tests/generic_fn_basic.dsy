@@ -1,0 +1,9 @@
+module generic_fn_basic
+
+fn id<T>(x: T) -> T:
+  return x
+
+fn main() -> int:
+  print(id<int>(3))
+  return 0
+

@@ -1,0 +1,22 @@
+module fs_stress
+
+import stdlib_io
+import stdlib_fs
+import stdlib_strings
+
+fn main() -> int:
+  set path = "build/fs_stress.txt"
+  set i = 0
+  set total = 0
+  while i < 20:
+    set content = stdlib_strings.concat("line", "x")
+    set _ = stdlib_io.write_all(path, content)
+    set read = stdlib_io.read_all(path)
+    set total = total + stdlib_strings.len(read)
+    set _ = stdlib_strings.str_release(content)
+    set _ = stdlib_strings.str_release(read)
+    set i = i + 1
+  set _ = stdlib_fs.file_delete(path)
+  print total
+  return 0
+

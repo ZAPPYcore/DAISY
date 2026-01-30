@@ -1,0 +1,29 @@
+module collections_runtime_test
+
+import stdlib_collections
+
+fn main() -> int:
+  set v = stdlib_collections.new_vec()
+  set _ = stdlib_collections.push(v, 10)
+  set _ = stdlib_collections.push(v, 20)
+  set l = stdlib_collections.len(v)
+  print l
+  set g = stdlib_collections.get(v, 1)
+  print g
+  print stdlib_collections.is_empty(v)
+  print stdlib_collections.last_or(v, 0)
+  print stdlib_collections.sum(v)
+  print stdlib_collections.index_of(v, 20)
+  print stdlib_collections.contains(v, 20)
+  print stdlib_collections.max_or(v, -1)
+  print stdlib_collections.min_or(v, -1)
+  print stdlib_collections.average_or(v, 0)
+  set v2 = stdlib_collections.clone(v)
+  print stdlib_collections.sum(v2)
+  set r = stdlib_collections.range(3, 6)
+  print stdlib_collections.sum(r)
+  set _ = stdlib_collections.release(v)
+  set _ = stdlib_collections.release(v2)
+  set _ = stdlib_collections.release(r)
+  return 0
+

@@ -1,0 +1,11 @@
+module error_model_test
+
+import errors
+
+fn main() -> int:
+  set _ = errors.clear()
+  set msg = errors.last()
+  print msg
+  return 0
+
+

@@ -1,0 +1,14 @@
+module net_recv_fuzz_test
+
+import stdlib_net
+
+fn main() -> int:
+  set sock = stdlib_net.connect("127.0.0.1", PORT_PLACEHOLDER)
+  if sock < 0:
+    return 1
+  set _ = stdlib_net.send(sock, "ping")
+  set msg = stdlib_net.recv(sock, MAX_BYTES_PLACEHOLDER)
+  print msg
+  set _ = stdlib_net.close(sock)
+  return 0
+

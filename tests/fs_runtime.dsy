@@ -1,0 +1,13 @@
+module fs_runtime_test
+
+import stdlib_io
+import stdlib_fs
+
+fn main() -> int:
+  set path = "build/fs_runtime.txt"
+  set _ = stdlib_io.write_all(path, "hello")
+  set content = stdlib_io.read_all(path)
+  print content
+  set _ = stdlib_fs.file_delete(path)
+  return 0
+

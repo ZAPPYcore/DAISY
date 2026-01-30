@@ -1,0 +1,13 @@
+module if_else_test
+
+fn main() -> int:
+  set x = 2
+  if x == 1:
+    set x = 10
+  elif x == 2:
+    set x = 20
+  else:
+    set x = 30
+  return x
+
+

@@ -1,0 +1,10 @@
+모듈 korean_module_alias_test
+모듈을 mathlib 별칭으로 m
+사용 mathlib
+
+함수를 정의한다 main은 아무것도 받지 않고 int를 반환한다:
+  m.add(1, 2)를 출력한다
+  add(3, 4)를 출력한다
+  0을 반환한다
+
+

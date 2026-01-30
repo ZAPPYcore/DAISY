@@ -1,0 +1,17 @@
+module trait_basic
+
+trait Show:
+  fn show(self: Self) -> int
+
+struct Num:
+  value: int
+
+impl Show for Num:
+  fn show(self: Self) -> int:
+    return self.value
+
+fn main() -> int:
+  set n = Num(5)
+  print(n.show())
+  return 0
+

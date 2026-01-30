@@ -1,0 +1,9 @@
+module stress_runtime
+
+fn main() -> int:
+  set sum = 0
+  repeat 200000:
+    set sum = sum + 1
+  print sum
+  return 0
+

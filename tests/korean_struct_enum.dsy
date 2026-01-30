@@ -1,0 +1,21 @@
+모듈 korean_types
+
+구조체 점:
+  x: 정수
+  y: 정수
+
+열거형 신호:
+  케이스 시작
+  케이스 값: 정수
+
+함수 main() -> 정수:
+  set p = 점(1, 2)
+  print(p.x)
+  set s = 신호.시작()
+  match s:
+    case 신호.시작():
+      print(1)
+    case 신호.값(3):
+      print(3)
+  return 0
+

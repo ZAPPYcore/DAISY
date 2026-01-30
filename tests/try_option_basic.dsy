@@ -1,0 +1,22 @@
+module try_option_basic
+
+import option
+
+fn wrap_some(x: int) -> Option<int>:
+  return Option.Some(x)
+
+fn wrap_none() -> Option<int>:
+  return Option.None()
+
+fn use_some() -> Option<int>:
+  set v = try wrap_some(4)
+  return Option.Some(v)
+
+fn use_none() -> Option<int>:
+  set v = try wrap_none()
+  return Option.Some(v)
+
+fn main() -> int:
+  return 0
+
+

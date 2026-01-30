@@ -1,0 +1,12 @@
+module trait_bounds_fail
+
+trait Show:
+  fn show(self: Self) -> int
+
+fn use_show<T: Show>(x: T) -> int:
+  return x.show()
+
+fn main() -> int:
+  return use_show<string>("bad")
+
+

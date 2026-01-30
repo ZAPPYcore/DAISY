@@ -1,0 +1,16 @@
+module collections_stress
+
+import stdlib_collections
+
+fn main() -> int:
+  set v = stdlib_collections.new_vec()
+  set i = 0
+  while i < 100:
+    set _ = stdlib_collections.push(v, i)
+    set i = i + 1
+  print stdlib_collections.sum(v)
+  print stdlib_collections.last_or(v, -1)
+  print stdlib_collections.index_of(v, 50)
+  set _ = stdlib_collections.release(v)
+  return 0
+

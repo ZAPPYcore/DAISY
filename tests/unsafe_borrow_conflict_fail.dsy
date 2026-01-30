@@ -1,0 +1,10 @@
+module unsafe_borrow_conflict_fail
+
+fn main() -> int:
+  버퍼를 4바이트로 생성한다
+  뷰를 버퍼의 0부터 2까지로 빌려온다(불변)
+  unsafe "alias not allowed":
+    뷰2를 버퍼의 1부터 3까지로 빌려온다(가변)
+  return 0
+
+

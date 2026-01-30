@@ -1,0 +1,10 @@
+module generics_basic
+
+struct Box<T>:
+  value: T
+
+fn main() -> int:
+  set b = Box<int>(1)
+  print(b.value)
+  return 0
+

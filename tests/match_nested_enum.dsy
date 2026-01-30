@@ -1,0 +1,21 @@
+module match_nested_enum_test
+
+enum Option:
+  case Some: int
+  case None
+
+enum Wrap:
+  case Wrap: Option
+
+fn main() -> int:
+  set v = Wrap.Wrap(Option.Some(1))
+  match v:
+    case Wrap.Wrap(Option.Some(1)):
+      return 1
+    case Wrap.Wrap(Option.None()):
+      return 2
+    else:
+      return 3
+  return 0
+
+

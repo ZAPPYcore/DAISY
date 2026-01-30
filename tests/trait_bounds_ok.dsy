@@ -1,0 +1,16 @@
+module trait_bounds_ok
+
+trait Show:
+  fn show(self: Self) -> int
+
+impl Show for int:
+  fn show(self: int) -> int:
+    return self
+
+fn use_show<T: Show>(x: T) -> int:
+  return x.show()
+
+fn main() -> int:
+  return use_show<int>(7)
+
+

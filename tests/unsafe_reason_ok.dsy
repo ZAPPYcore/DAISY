@@ -1,0 +1,8 @@
+module unsafe_reason_ok
+
+fn main() -> int:
+  unsafe "ffi boundary":
+    print 1
+  return 0
+
+

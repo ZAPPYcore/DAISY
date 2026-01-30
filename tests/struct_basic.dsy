@@ -1,0 +1,12 @@
+module struct_basic_test
+
+struct Point:
+  x: int
+  y: int
+
+fn main() -> int:
+  set p = Point(1, 2)
+  set sum = p.x + p.y
+  print sum
+  return 0
+

@@ -1,0 +1,18 @@
+module strings_stress
+
+import stdlib_strings
+import stdlib_strings_ext
+
+fn main() -> int:
+  set s = stdlib_strings_ext.repeat("ab", 50)
+  print stdlib_strings.len(s)
+  print stdlib_strings_ext.count_char(s, 97)
+  set esc = stdlib_strings_ext.escape_json("\"x\"")
+  print esc
+  set num = stdlib_strings_ext.from_int(123)
+  print num
+  set _ = stdlib_strings.str_release(s)
+  set _ = stdlib_strings.str_release(esc)
+  set _ = stdlib_strings.str_release(num)
+  return 0
+

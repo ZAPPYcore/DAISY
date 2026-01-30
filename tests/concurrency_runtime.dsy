@@ -1,0 +1,16 @@
+module concurrency_runtime_test
+
+import stdlib_concurrency
+
+fn worker(ch: channel) -> int:
+  set _ = stdlib_concurrency.send_many(ch, 3, 10)
+  return 0
+
+fn main() -> int:
+  set ch = stdlib_concurrency.new_channel()
+  set _ = spawn(worker, ch)
+  set total = stdlib_concurrency.recv_sum(ch, 3)
+  print total
+  set _ = stdlib_concurrency.close(ch)
+  return 0
+

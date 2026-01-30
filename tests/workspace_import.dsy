@@ -1,0 +1,10 @@
+module workspace_import_test
+
+import wsmath
+
+fn main() -> int:
+  set v = wsmath.inc(41)
+  print v
+  return 0
+
+

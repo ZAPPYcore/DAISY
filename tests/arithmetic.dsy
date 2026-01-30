@@ -1,0 +1,11 @@
+module arithmetic_test
+
+fn main() -> int:
+  set x = 1 + 2 * 3
+  set y = (1 + 2) * 3
+  set z = -x + 10 / 2
+  print x
+  print y
+  print z
+  return 0
+

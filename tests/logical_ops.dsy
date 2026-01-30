@@ -1,0 +1,14 @@
+module logical_ops_test
+
+fn main() -> int:
+  set a = true
+  set b = false
+  if a and b:
+    return 1
+  if a || b:
+    return 2
+  if a && true:
+    return 3
+  return 0
+
+

@@ -1,0 +1,31 @@
+module strings_ext_runtime_test
+
+import stdlib_strings
+import stdlib_strings_ext
+
+fn main() -> int:
+  set has_a = stdlib_strings_ext.contains_char("banana", 97)
+  if has_a:
+    print 1
+  else:
+    print 0
+  print stdlib_strings_ext.count_char("banana", 97)
+  print stdlib_strings_ext.last_index_of_char("banana", 97)
+  set rep = stdlib_strings_ext.repeat("ab", 3)
+  print rep
+  set esc = stdlib_strings_ext.escape_json("\"x\"")
+  print esc
+  set num = stdlib_strings_ext.from_int(42)
+  print num
+  print stdlib_strings_ext.ends_with("hello", "lo")
+  set stripped = stdlib_strings_ext.strip_prefix("hello", "he")
+  print stripped
+  set stripped2 = stdlib_strings_ext.strip_suffix("hello", "lo")
+  print stripped2
+  set _ = stdlib_strings.str_release(rep)
+  set _ = stdlib_strings.str_release(esc)
+  set _ = stdlib_strings.str_release(num)
+  set _ = stdlib_strings.str_release(stripped)
+  set _ = stdlib_strings.str_release(stripped2)
+  return 0
+

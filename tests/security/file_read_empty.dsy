@@ -1,0 +1,15 @@
+module file_read_empty_test
+
+import stdlib_io
+import stdlib_strings
+
+fn main() -> int:
+  set content = stdlib_io.read_all("build/security_empty.bin")
+  if stdlib_strings.is_null(content):
+    print "NULL"
+    return 0
+  if stdlib_strings.str_len(content) == 0:
+    print "EMPTY"
+  set _ = stdlib_strings.str_release(content)
+  return 0
+

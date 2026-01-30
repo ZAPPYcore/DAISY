@@ -1,0 +1,14 @@
+module file_read_boundary_test
+
+import stdlib_io
+import stdlib_strings
+
+fn main() -> int:
+  set content = stdlib_io.read_all("build/security_file.bin")
+  if stdlib_strings.is_null(content):
+    print "NULL"
+    return 0
+  print "OK"
+  set _ = stdlib_strings.str_release(content)
+  return 0
+

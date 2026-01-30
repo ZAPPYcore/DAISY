@@ -1,0 +1,22 @@
+module try_result_basic
+
+import result
+
+fn ok(x: int) -> Result<int, int>:
+  return Result.Ok(x)
+
+fn fail() -> Result<int, int>:
+  return Result.Err(7)
+
+fn wrap_ok() -> Result<int, int>:
+  set v = try ok(3)
+  return Result.Ok(v)
+
+fn wrap_fail() -> Result<int, int>:
+  set v = try fail()
+  return Result.Ok(v)
+
+fn main() -> int:
+  return 0
+
+

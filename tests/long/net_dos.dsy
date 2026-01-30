@@ -1,0 +1,21 @@
+module net_dos_test
+
+import stdlib_net
+import stdlib_strings
+
+fn main() -> int:
+  set sock = stdlib_net.connect("127.0.0.1", PORT_PLACEHOLDER)
+  if sock < 0:
+    return 1
+  set i = 0
+  while i < 50:
+    set _ = stdlib_net.send(sock, "ping")
+    set msg = stdlib_net.recv(sock, 4)
+    if stdlib_strings.is_null(msg):
+      return 1
+    set _ = stdlib_strings.str_release(msg)
+    set i = i + 1
+  set _ = stdlib_net.close(sock)
+  print "OK"
+  return 0
+

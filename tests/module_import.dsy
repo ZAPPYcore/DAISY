@@ -1,0 +1,9 @@
+module module_import_test
+
+import mathlib
+
+fn main() -> int:
+  set x = mathlib.add(1, 2)
+  print x
+  return 0
+

@@ -1,0 +1,10 @@
+module deps_import_test
+
+import util
+
+fn main() -> int:
+  set v = util.add2(40)
+  print v
+  return 0
+
+

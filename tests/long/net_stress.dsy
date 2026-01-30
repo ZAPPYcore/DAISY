@@ -1,0 +1,17 @@
+module net_stress
+
+import stdlib_net
+
+fn main() -> int:
+  set sock = stdlib_net.connect("127.0.0.1", PORT_PLACEHOLDER)
+  if sock < 0:
+    return 1
+  set i = 0
+  while i < 3:
+    set _ = stdlib_net.send(sock, "ping")
+    set msg = stdlib_net.recv(sock, 4)
+    print msg
+    set i = i + 1
+  set _ = stdlib_net.close(sock)
+  return 0
+

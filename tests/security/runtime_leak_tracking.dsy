@@ -1,0 +1,20 @@
+module runtime_leak_tracking_test
+
+import stdlib_runtime
+import stdlib_strings
+
+fn main() -> int:
+  set before = stdlib_runtime.string_live()
+  set value = stdlib_strings.copy("leak")
+  set mid = stdlib_runtime.string_live()
+  set _ = stdlib_strings.str_release(value)
+  set after = stdlib_runtime.string_live()
+  print before
+  print mid
+  print after
+  if mid <= before:
+    return 1
+  if after != before:
+    return 1
+  return 0
+

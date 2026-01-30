@@ -1,0 +1,18 @@
+module match_guard_test
+
+enum Option:
+  case Some: int
+  case None
+
+fn main() -> int:
+  set v = Option.Some(3)
+  match v:
+    case Option.Some(x) if x == 3:
+      return 1
+    case Option.Some(_):
+      return 2
+    case Option.None():
+      return 3
+  return 0
+
+

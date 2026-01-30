@@ -1,0 +1,18 @@
+module strings_runtime_test
+
+import stdlib_strings
+import stdlib_strings_ext
+
+fn main() -> int:
+  set s = stdlib_strings.concat("hi", "!")
+  print s
+  set n = stdlib_strings.len(s)
+  print n
+  set t = stdlib_strings_ext.trim("  ok ")
+  print t
+  set idx = stdlib_strings_ext.find_char("abcd", 99, 0)
+  print idx
+  set _ = stdlib_strings.str_release(s)
+  set _ = stdlib_strings.str_release(t)
+  return 0
+

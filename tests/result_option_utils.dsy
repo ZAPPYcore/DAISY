@@ -1,0 +1,31 @@
+module result_option_utils
+
+import result
+import option
+
+fn main() -> int:
+  set r = result.ok<int, int>(3)
+  if result.is_ok<int, int>(r):
+    set v = result.unwrap_or_else<int, int>(r, 0)
+    print v
+  set o = option.some<int>(4)
+  if option.is_some<int>(o):
+    set v2 = option.unwrap_or_else<int>(o, 0)
+    print v2
+  set r2 = result.and_then<int, int>(r, result.ok<int, int>(9))
+  print result.unwrap_or<int, int>(r2, 0)
+  set o2 = option.and_then<int>(o, option.some<int>(8))
+  print option.unwrap_or<int>(o2, 0)
+  set r3 = result.map<int, int, int>(r, 30)
+  print result.unwrap_or<int, int>(r3, 0)
+  set o3 = option.map<int, int>(o, 40)
+  print option.unwrap_or<int>(o3, 0)
+  set nested = option.some<Option<int>>(option.some<int>(5))
+  set flat = option.flatten<int>(nested)
+  print option.expect<int>(flat, "missing")
+  set nested_r = result.ok<Result<int, int>, int>(result.ok<int, int>(9))
+  set flat_r = result.flatten<int, int>(nested_r)
+  print result.expect<int, int>(flat_r, "bad")
+  return 0
+
+

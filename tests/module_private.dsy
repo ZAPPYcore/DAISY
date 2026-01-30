@@ -1,0 +1,9 @@
+module module_private_test
+
+import privlib
+
+fn main() -> int:
+  set a = privlib.hidden()
+  return a
+
+

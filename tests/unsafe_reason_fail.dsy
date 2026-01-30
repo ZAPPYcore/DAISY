@@ -1,0 +1,8 @@
+module unsafe_reason_fail
+
+fn main() -> int:
+  unsafe:
+    print 1
+  return 0
+
+

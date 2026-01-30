@@ -1,0 +1,10 @@
+module unsafe_release_ok
+
+fn main() -> int:
+  버퍼를 4바이트로 생성한다
+  뷰를 버퍼의 0부터 2까지로 빌려온다(불변)
+  unsafe "manual release":
+    버퍼를 해제한다
+  return 0
+
+

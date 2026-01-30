@@ -1,0 +1,15 @@
+module try_korean_basic
+
+import result
+
+fn ok(x: int) -> Result<int, int>:
+  return Result.Ok(x)
+
+fn wrap() -> Result<int, int>:
+  set v = 시도한다 ok(2)
+  return Result.Ok(v)
+
+fn main() -> int:
+  return 0
+
+

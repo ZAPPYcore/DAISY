@@ -1,0 +1,10 @@
+module stdlib_core_runtime
+
+use stdlib_core
+
+fn main() -> int:
+  set _ = print_int(7)
+  set _ = println("hi")
+  return 0
+
+

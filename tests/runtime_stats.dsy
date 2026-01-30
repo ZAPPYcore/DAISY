@@ -1,0 +1,17 @@
+module runtime_stats_test
+
+import stdlib_runtime
+import stdlib_strings
+import stdlib_collections
+
+fn main() -> int:
+  set s = stdlib_strings.concat("a", "b")
+  set v = stdlib_collections.range(0, 3)
+  print stdlib_runtime.string_live()
+  print stdlib_runtime.vec_live()
+  set _ = stdlib_strings.str_release(s)
+  set _ = stdlib_collections.release(v)
+  print stdlib_runtime.string_live()
+  print stdlib_runtime.vec_live()
+  return 0
+

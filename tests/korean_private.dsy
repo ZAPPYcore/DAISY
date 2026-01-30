@@ -1,0 +1,9 @@
+모듈 korean_private_test
+
+모듈을 privlib_ko
+
+함수를 정의한다 main은 아무것도 받지 않고 int를 반환한다:
+  privlib_ko.hidden()를 출력한다
+  0을 반환한다
+
+

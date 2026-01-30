@@ -1,0 +1,10 @@
+module channel_close_recv_test
+
+import stdlib_concurrency
+
+fn main() -> int:
+  set ch = stdlib_concurrency.new_channel()
+  set _ = stdlib_concurrency.close(ch)
+  set value = stdlib_concurrency.recv(ch)
+  print value
+  return 0

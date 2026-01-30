@@ -1,0 +1,14 @@
+module match_basic_test
+
+fn main() -> int:
+  set x = 2
+  match x:
+    case 1:
+      print "one"
+    case 2:
+      print "two"
+    else:
+      print "other"
+  return 0
+
+

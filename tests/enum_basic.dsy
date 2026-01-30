@@ -1,0 +1,11 @@
+module enum_basic_test
+
+enum Option:
+  case Some: int
+  case None
+
+fn main() -> int:
+  set a = Option.Some(3)
+  set b = Option.None()
+  return 0
+
