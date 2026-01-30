@@ -1,0 +1,7 @@
+# daisy.lock
+
+[dependencies]
+  [dependencies.utilpkg]
+  path = "deps/utilpkg"
+  version = "0.1.0"
+  sha256 = "e3a3fba840f5c1461090cd0998b8b45168e2c02a7a34e608922499eba8b7970b"

@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "daisy-lang"
+version = "0.1.0"
+description = "DAISY language toolchain"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.scripts]
+daisy = "tools.cli.daisy:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+  "tools",
+  "tools.*",
+  "compiler_bootstrap",
+  "compiler_bootstrap.*",
+  "compiler_core",
+  "compiler_core.*",
+  "pkg",
+  "pkg.*",
+]
+

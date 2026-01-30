@@ -1,0 +1,11 @@
+[package]
+name = "daisy-root"
+version = "0.1.0"
+
+[workspace]
+members = ["libs/*"]
+
+[dependencies]
+utilpkg = { path = "deps/utilpkg", version = "0.1.0" }
+
+
