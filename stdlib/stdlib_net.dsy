@@ -1,0 +1,19 @@
+module stdlib_net
+
+extern fn daisy_net_connect(host: string, port: int) -> int
+extern fn daisy_net_send(sock: int, data: string) -> int
+extern fn daisy_net_recv(sock: int, max_bytes: int) -> string
+extern fn daisy_net_close(sock: int) -> unit
+
+export fn connect(host: string, port: int) -> int:
+  return daisy_net_connect(host, port)
+
+export fn send(sock: int, data: string) -> int:
+  return daisy_net_send(sock, data)
+
+export fn recv(sock: int, max_bytes: int) -> string:
+  return daisy_net_recv(sock, max_bytes)
+
+export fn close(sock: int) -> unit:
+  set _ = daisy_net_close(sock)
+

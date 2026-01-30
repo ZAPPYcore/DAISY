@@ -1,0 +1,6 @@
+module wsmath
+
+export fn inc(x: int) -> int:
+  return x + 1
+
+

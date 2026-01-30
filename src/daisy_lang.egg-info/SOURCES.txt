@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+src/daisy_lang.egg-info/PKG-INFO
+src/daisy_lang.egg-info/SOURCES.txt
+src/daisy_lang.egg-info/dependency_links.txt
+src/daisy_lang.egg-info/entry_points.txt
+src/daisy_lang.egg-info/top_level.txt

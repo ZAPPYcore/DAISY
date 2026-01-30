@@ -1,0 +1,15 @@
+module stdlib_serialize
+
+extern fn daisy_int_to_str(value: int) -> string
+extern fn daisy_bool_to_str(value: bool) -> string
+extern fn daisy_str_escape_json(value: string) -> string
+
+export fn int_to_str(value: int) -> string:
+  return daisy_int_to_str(value)
+
+export fn bool_to_str(value: bool) -> string:
+  return daisy_bool_to_str(value)
+
+export fn json_escape(value: string) -> string:
+  return daisy_str_escape_json(value)
+

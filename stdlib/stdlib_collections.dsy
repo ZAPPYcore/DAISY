@@ -1,0 +1,108 @@
+module stdlib_collections
+
+export extern fn vec_new() -> vec
+export extern fn vec_push(v: vec, value: int) -> unit
+export extern fn vec_get(v: vec, index: int) -> int
+export extern fn vec_len(v: vec) -> int
+export extern fn vec_release(v: vec) -> unit
+
+export fn new_vec() -> vec:
+  return vec_new()
+
+export fn push(v: vec, value: int) -> unit:
+  set _ = vec_push(v, value)
+  return
+
+export fn get(v: vec, index: int) -> int:
+  return vec_get(v, index)
+
+export fn len(v: vec) -> int:
+  return vec_len(v)
+
+export fn release(v: vec) -> unit:
+  set _ = vec_release(v)
+  return
+
+export fn is_empty(v: vec) -> bool:
+  if vec_len(v) == 0:
+    return true
+  return false
+
+export fn last_or(v: vec, fallback: int) -> int:
+  set l = vec_len(v)
+  if l == 0:
+    return fallback
+  return vec_get(v, l - 1)
+
+export fn sum(v: vec) -> int:
+  set total = 0
+  set i = 0
+  set l = vec_len(v)
+  while i < l:
+    set total = total + vec_get(v, i)
+    set i = i + 1
+  return total
+
+export fn index_of(v: vec, value: int) -> int:
+  set i = 0
+  set l = vec_len(v)
+  while i < l:
+    if vec_get(v, i) == value:
+      return i
+    set i = i + 1
+  return -1
+
+export fn contains(v: vec, value: int) -> bool:
+  if index_of(v, value) >= 0:
+    return true
+  return false
+
+export fn max_or(v: vec, fallback: int) -> int:
+  set l = vec_len(v)
+  if l == 0:
+    return fallback
+  set i = 1
+  set best = vec_get(v, 0)
+  while i < l:
+    set cur = vec_get(v, i)
+    if cur > best:
+      set best = cur
+    set i = i + 1
+  return best
+
+export fn min_or(v: vec, fallback: int) -> int:
+  set l = vec_len(v)
+  if l == 0:
+    return fallback
+  set i = 1
+  set best = vec_get(v, 0)
+  while i < l:
+    set cur = vec_get(v, i)
+    if cur < best:
+      set best = cur
+    set i = i + 1
+  return best
+
+export fn average_or(v: vec, fallback: int) -> int:
+  set l = vec_len(v)
+  if l == 0:
+    return fallback
+  return sum(v) / l
+
+export fn clone(v: vec) -> vec:
+  set out = vec_new()
+  set i = 0
+  set l = vec_len(v)
+  while i < l:
+    set _ = vec_push(out, vec_get(v, i))
+    set i = i + 1
+  return out
+
+export fn range(start: int, end: int) -> vec:
+  set out = vec_new()
+  set i = start
+  while i < end:
+    set _ = vec_push(out, i)
+    set i = i + 1
+  return out
+

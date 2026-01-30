@@ -1,0 +1,27 @@
+module stdlib_fs
+
+extern fn daisy_file_exists(path: string) -> bool
+extern fn daisy_file_delete(path: string) -> bool
+extern fn daisy_file_move(from: string, to: string) -> bool
+extern fn daisy_file_copy(from: string, to: string) -> bool
+extern fn daisy_dir_create(path: string) -> bool
+extern fn daisy_dir_exists(path: string) -> bool
+
+export fn file_exists(path: string) -> bool:
+  return daisy_file_exists(path)
+
+export fn file_delete(path: string) -> bool:
+  return daisy_file_delete(path)
+
+export fn file_move(from: string, to: string) -> bool:
+  return daisy_file_move(from, to)
+
+export fn file_copy(from: string, to: string) -> bool:
+  return daisy_file_copy(from, to)
+
+export fn dir_create(path: string) -> bool:
+  return daisy_dir_create(path)
+
+export fn dir_exists(path: string) -> bool:
+  return daisy_dir_exists(path)
+

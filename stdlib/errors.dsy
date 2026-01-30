@@ -1,0 +1,17 @@
+module errors
+
+export extern fn error_last() -> string
+export extern fn error_clear() -> unit
+export extern fn panic(message: string) -> unit
+
+export fn last() -> string:
+  return error_last()
+
+export fn clear() -> unit:
+  set _ = error_clear()
+  return
+
+export fn fatal(message: string) -> unit:
+  set _ = panic(message)
+  return
+

@@ -1,0 +1,12 @@
+module stdlib_io
+
+export extern fn file_read(path: string) -> string
+export extern fn file_write(path: string, content: string) -> int
+export extern fn module_load(path: string) -> string
+
+export fn read_all(path: string) -> string:
+  return file_read(path)
+
+export fn write_all(path: string, content: string) -> int:
+  return file_write(path, content)
+

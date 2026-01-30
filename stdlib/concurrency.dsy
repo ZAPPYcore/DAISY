@@ -1,0 +1,36 @@
+module stdlib_concurrency
+
+extern fn daisy_channel_create() -> channel
+extern fn daisy_channel_send(ch: channel, value: int) -> unit
+extern fn daisy_channel_recv(ch: channel) -> int
+extern fn daisy_channel_close(ch: channel) -> unit
+
+export fn new_channel() -> channel:
+  return daisy_channel_create()
+
+export fn send(ch: channel, value: int) -> unit:
+  set _ = daisy_channel_send(ch, value)
+  return
+
+export fn recv(ch: channel) -> int:
+  return daisy_channel_recv(ch)
+
+export fn close(ch: channel) -> unit:
+  set _ = daisy_channel_close(ch)
+  return
+
+export fn send_many(ch: channel, count: int, start: int) -> unit:
+  set i = 0
+  while i < count:
+    set _ = send(ch, start + i)
+    set i = i + 1
+  return
+
+export fn recv_sum(ch: channel, count: int) -> int:
+  set total = 0
+  set i = 0
+  while i < count:
+    set total = total + recv(ch)
+    set i = i + 1
+  return total
+

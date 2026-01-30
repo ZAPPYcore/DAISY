@@ -1,0 +1,39 @@
+module stdlib_log
+
+import stdlib_strings
+
+extern fn daisy_log_set_level(level: int) -> unit
+extern fn daisy_log_info(msg: string) -> unit
+extern fn daisy_log_warn(msg: string) -> unit
+extern fn daisy_log_error(msg: string) -> unit
+
+export fn set_level(level: int) -> unit:
+  daisy_log_set_level(level)
+
+export fn info(msg: string) -> unit:
+  daisy_log_info(msg)
+
+export fn warn(msg: string) -> unit:
+  daisy_log_warn(msg)
+
+export fn error(msg: string) -> unit:
+  daisy_log_error(msg)
+
+export fn info_kv(key: string, value: string) -> unit:
+  set msg = stdlib_strings.concat3(key, "=", value)
+  daisy_log_info(msg)
+  set _ = stdlib_strings.str_release(msg)
+  return
+
+export fn warn_kv(key: string, value: string) -> unit:
+  set msg = stdlib_strings.concat3(key, "=", value)
+  daisy_log_warn(msg)
+  set _ = stdlib_strings.str_release(msg)
+  return
+
+export fn error_kv(key: string, value: string) -> unit:
+  set msg = stdlib_strings.concat3(key, "=", value)
+  daisy_log_error(msg)
+  set _ = stdlib_strings.str_release(msg)
+  return
+

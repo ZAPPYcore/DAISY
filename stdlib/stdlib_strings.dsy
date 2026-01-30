@@ -1,0 +1,42 @@
+module stdlib_strings
+
+extern fn daisy_str_len(value: string) -> int
+extern fn daisy_str_is_null(value: string) -> int
+extern fn daisy_str_concat(left: string, right: string) -> string
+extern fn daisy_str_release(value: string) -> unit
+
+export fn str_len(value: string) -> int:
+  return daisy_str_len(value)
+
+export fn is_null(value: string) -> bool:
+  if daisy_str_is_null(value) == 1:
+    return true
+  return false
+
+export fn str_concat(left: string, right: string) -> string:
+  return daisy_str_concat(left, right)
+
+export fn str_release(value: string) -> unit:
+  set _ = daisy_str_release(value)
+  return
+
+export fn len(value: string) -> int:
+  return daisy_str_len(value)
+
+export fn concat(left: string, right: string) -> string:
+  return daisy_str_concat(left, right)
+
+export fn copy(value: string) -> string:
+  return daisy_str_concat(value, "")
+
+export fn is_empty(value: string) -> bool:
+  if daisy_str_len(value) == 0:
+    return true
+  return false
+
+export fn concat3(a: string, b: string, c: string) -> string:
+  set tmp = daisy_str_concat(a, b)
+  set out = daisy_str_concat(tmp, c)
+  set _ = daisy_str_release(tmp)
+  return out
+

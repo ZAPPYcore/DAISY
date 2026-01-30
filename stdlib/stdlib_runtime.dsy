@@ -1,0 +1,19 @@
+module stdlib_runtime
+
+extern fn daisy_rt_string_live() -> int
+extern fn daisy_rt_vec_live() -> int
+extern fn daisy_rt_buffer_live() -> int
+extern fn daisy_rt_channel_live() -> int
+
+export fn string_live() -> int:
+  return daisy_rt_string_live()
+
+export fn vec_live() -> int:
+  return daisy_rt_vec_live()
+
+export fn buffer_live() -> int:
+  return daisy_rt_buffer_live()
+
+export fn channel_live() -> int:
+  return daisy_rt_channel_live()
+

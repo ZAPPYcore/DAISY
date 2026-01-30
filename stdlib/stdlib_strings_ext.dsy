@@ -1,0 +1,98 @@
+module stdlib_strings_ext
+
+import stdlib_strings
+
+export extern fn str_char_at(value: string, index: int) -> int
+export extern fn str_substr(value: string, start: int, len: int) -> string
+export extern fn str_find_char(value: string, ch: int, start: int) -> int
+export extern fn str_starts_with(value: string, prefix: string) -> bool
+export extern fn str_trim(value: string) -> string
+export extern fn str_to_int(value: string) -> int
+export extern fn str_escape_json(value: string) -> string
+export extern fn int_to_str(value: int) -> string
+
+export fn char_at(value: string, index: int) -> int:
+  return str_char_at(value, index)
+
+export fn substr(value: string, start: int, len: int) -> string:
+  return str_substr(value, start, len)
+
+export fn find_char(value: string, ch: int, start: int) -> int:
+  return str_find_char(value, ch, start)
+
+export fn starts_with(value: string, prefix: string) -> bool:
+  return str_starts_with(value, prefix)
+
+export fn trim(value: string) -> string:
+  return str_trim(value)
+
+export fn to_int(value: string) -> int:
+  return str_to_int(value)
+
+export fn escape_json(value: string) -> string:
+  return str_escape_json(value)
+
+export fn from_int(value: int) -> string:
+  return int_to_str(value)
+
+export fn repeat(value: string, count: int) -> string:
+  if count <= 0:
+    return stdlib_strings.concat("", "")
+  set out = stdlib_strings.concat("", "")
+  set i = 0
+  while i < count:
+    set next = stdlib_strings.concat(out, value)
+    set _ = stdlib_strings.str_release(out)
+    set out = next
+    set i = i + 1
+  return out
+
+export fn ends_with(value: string, suffix: string) -> bool:
+  set vlen = stdlib_strings.len(value)
+  set slen = stdlib_strings.len(suffix)
+  if slen > vlen:
+    return false
+  set start = vlen - slen
+  set tail = str_substr(value, start, slen)
+  set ok = str_starts_with(tail, suffix)
+  set _ = stdlib_strings.str_release(tail)
+  if ok:
+    return true
+  return false
+
+export fn strip_prefix(value: string, prefix: string) -> string:
+  if str_starts_with(value, prefix):
+    set plen = stdlib_strings.len(prefix)
+    set vlen = stdlib_strings.len(value)
+    return str_substr(value, plen, vlen - plen)
+  return stdlib_strings.copy(value)
+
+export fn strip_suffix(value: string, suffix: string) -> string:
+  if ends_with(value, suffix):
+    set vlen = stdlib_strings.len(value)
+    set slen = stdlib_strings.len(suffix)
+    return str_substr(value, 0, vlen - slen)
+  return stdlib_strings.copy(value)
+
+export fn contains_char(value: string, ch: int) -> bool:
+  set idx = str_find_char(value, ch, 0)
+  if idx >= 0:
+    return true
+  return false
+
+export fn count_char(value: string, ch: int) -> int:
+  set count = 0
+  set idx = str_find_char(value, ch, 0)
+  while idx >= 0:
+    set count = count + 1
+    set idx = str_find_char(value, ch, idx + 1)
+  return count
+
+export fn last_index_of_char(value: string, ch: int) -> int:
+  set last = -1
+  set idx = str_find_char(value, ch, 0)
+  while idx >= 0:
+    set last = idx
+    set idx = str_find_char(value, ch, idx + 1)
+  return last
+

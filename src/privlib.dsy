@@ -1,0 +1,9 @@
+module privlib
+
+fn hidden() -> int:
+  return 1
+
+export fn visible() -> int:
+  return 2
+
+

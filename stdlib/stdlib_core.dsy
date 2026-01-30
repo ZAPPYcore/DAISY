@@ -1,0 +1,14 @@
+module stdlib_core
+
+extern fn daisy_print_int(x: int) -> unit
+extern fn daisy_print_str(value: string) -> unit
+
+export fn print_int(x: int) -> unit:
+  return daisy_print_int(x)
+
+export fn print_str(value: string) -> unit:
+  return daisy_print_str(value)
+
+export fn println(value: string) -> unit:
+  return daisy_print_str(value)
+

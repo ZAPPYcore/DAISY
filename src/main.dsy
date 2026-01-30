@@ -1,0 +1,94 @@
+module main
+
+fn is_space(ch: int) -> bool:
+  if ch == 32:
+    return true
+  if ch == 9:
+    return true
+  if ch == 10:
+    return true
+  if ch == 13:
+    return true
+  return false
+
+fn is_digit(ch: int) -> bool:
+  if ch >= 48:
+    if ch <= 57:
+      return true
+  return false
+
+fn skip_spaces(s: string, idx: int) -> int:
+  set n = str_len(s)
+  while idx < n:
+    set ch = str_char_at(s, idx)
+    if is_space(ch):
+      set idx = idx + 1
+    if is_space(ch) == false:
+      return idx
+  return idx
+
+fn parse_number(s: string, idx: int) -> vec:
+  set idx = skip_spaces(s, idx)
+  set n = str_len(s)
+  set start = idx
+  while idx < n:
+    set ch = str_char_at(s, idx)
+    if is_digit(ch):
+      set idx = idx + 1
+    if is_digit(ch) == false:
+      break
+  set slice = str_substr(s, start, idx - start)
+  set value = str_to_int(slice)
+  set _ = str_release(slice)
+  set pair = vec_new()
+  set _ = vec_push(pair, value)
+  set _ = vec_push(pair, idx)
+  return pair
+
+fn apply_op(lhs: int, op: int, rhs: int) -> int:
+  if op == 43:
+    return lhs + rhs
+  if op == 45:
+    return lhs - rhs
+  if op == 42:
+    return lhs * rhs
+  if op == 47:
+    return lhs / rhs
+  return lhs
+
+fn eval_expr(s: string) -> int:
+  set idx = 0
+  set n = str_len(s)
+  set pair = parse_number(s, idx)
+  set value = vec_get(pair, 0)
+  set idx = vec_get(pair, 1)
+  set _ = vec_release(pair)
+  while idx < n:
+    set idx = skip_spaces(s, idx)
+    if idx >= n:
+      break
+    set op = str_char_at(s, idx)
+    set idx = idx + 1
+    set pair = parse_number(s, idx)
+    set rhs = vec_get(pair, 0)
+    set idx = vec_get(pair, 1)
+    set _ = vec_release(pair)
+    set value = apply_op(value, op, rhs)
+  return value
+
+fn main() -> int:
+  set input = file_read("calc.txt")
+  set should_release = 1
+  if str_len(input) == 0:
+    set _ = str_release(input)
+    set input = "12 + 34 - 5 + 2"
+    set should_release = 0
+  set result = eval_expr(input)
+  print "expression:"
+  print input
+  print "result:"
+  print result
+  if should_release == 1:
+    set _ = str_release(input)
+  return 0
+
