@@ -1,0 +1,15 @@
+module bench_vec_push
+
+fn main() -> int:
+  set v = vec_new()
+  set i = 0
+  set n = 200000
+  while n > 0:
+    set _ = vec_push(v, i)
+    add 1 to i
+    set n = n - 1
+  set total = vec_len(v)
+  print total
+  return 0
+
+

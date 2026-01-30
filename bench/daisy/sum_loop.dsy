@@ -1,0 +1,14 @@
+module bench_sum_loop
+
+fn main() -> int:
+  set i = 0
+  set acc = 0
+  set n = 5000000
+  while n > 0:
+    add 1 to i
+    add i to acc
+    set n = n - 1
+  print acc
+  return 0
+
+

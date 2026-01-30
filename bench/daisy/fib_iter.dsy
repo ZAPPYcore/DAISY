@@ -1,0 +1,15 @@
+module bench_fib_iter
+
+fn main() -> int:
+  set a = 0
+  set b = 1
+  set n = 2000000
+  while n > 0:
+    set tmp = a + b
+    set a = b
+    set b = tmp
+    set n = n - 1
+  print a
+  return 0
+
+
